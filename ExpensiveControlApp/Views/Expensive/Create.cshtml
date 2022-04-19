@@ -1,0 +1,44 @@
+﻿@model ExpensiveControlApp.DTOs.CreateExpensiveDTO
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Description" placeholder="Digite a descrição" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Date" type="date" placeholder="Digite a data" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Value" type="number" placeholder="Digite o valor" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-grid">
+                <a asp-action="Index" class="btn btn-secondary btn-login text-uppercase fw-bold">Voltar</a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-login text-uppercase fw-bold">Criar</button>
+            </div>
+        </div>
+    </div>
+</form>

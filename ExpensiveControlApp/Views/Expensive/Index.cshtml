@@ -1,0 +1,72 @@
+﻿@model ExpensiveControlApp.DTOs.ListExpensiveDTO
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-sm">
+        <h1>Despesas</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <a asp-action="Create" asp-controller="Expensive" class="btn btn-primary btn-lg btn-block">Nova despesa</a>
+    </div>
+</div>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input asp-for="StartDate" type="date" placeholder="Digite a data inicial" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <input asp-for="EndDate" type="date" placeholder="Digite a data inicial" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg">Buscar</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col=md">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Descrição</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model.Items.Count > 0)
+                {
+                    foreach(var item in Model.Items)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Description</td>
+                            <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr><td colspan="4">Nenhum registro encontrado.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
